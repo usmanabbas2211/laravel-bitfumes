@@ -15,6 +15,10 @@
                     @endif
 
                    <div class="card-body">
+                       {{-- @include('layouts.flash') --}}
+                       <x-alert>
+                           <p>here is text from flash</p>
+                       </x-alert>
                        <form action="/upload" method="POST"  enctype="multipart/form-data">
                         @csrf
                            <input type="file" name="image">

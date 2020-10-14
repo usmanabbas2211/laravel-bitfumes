@@ -13,13 +13,16 @@ class UserController extends Controller
     public function uploadAvatar(Request $request){
         if($request->hasFile('image')){
           User::uploadAvatar($request->image);
-
+          $request->session()->flash('message','image uploaded');
+          return redirect()->back();
+          
+          
            
         }
-        else{
-            return 'problem';
-        }
+        $request->session()->flash('error','image not uploaded');
         return redirect()->back();
+       
+        
         
     }
     
